@@ -1,4 +1,4 @@
-package queue;
+package queue.array;
 
 import java.util.Arrays;
 /**
@@ -36,6 +36,7 @@ public class ArrayCircleQueue {
         if (front == rear && flag){
             throw new RuntimeException("queue is full");
         }
+        front = front % size;
         items[front] = item;
         front++;
         if (front == rear){
@@ -48,6 +49,7 @@ public class ArrayCircleQueue {
         if (front == rear && !flag){
             throw new RuntimeException("queue is empty");
         }
+        rear = rear % size;
         Object item = items[rear];
         rear++;
         if (front==rear){
